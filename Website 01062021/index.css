@@ -1,0 +1,538 @@
+* {
+    margin: 0;
+    padding: 0;
+    /* background-color: white; */
+    height: auto;
+}
+
+@font-face {
+    font-family: logo;
+    src: url(Prociono-Regular.ttf);
+}
+
+@font-face {
+    font-family: menu1;
+    src: url(CarterOne-Regular.ttf);
+}
+
+body {
+    font-family: sans-serif;
+    overflow-x: hidden;
+    background-color: black;
+}
+
+nav {
+    /* z-index: 1; */
+    display: flex;
+    background-color: black;
+    justify-content: space-around;
+    /* padding: 20px 0; */
+    height: 75px;
+    color: white;
+    align-items: center;
+    /* border: 2px red solid; */
+}
+/* 
+nav .logo {
+    font-family: logo;
+    letter-spacing: 3px;
+} */
+
+nav ul {
+    display: flex;
+    list-style: none;
+    width: 50%;
+    justify-content: space-between;
+}
+
+
+nav ul li a {
+        /* z-index: 2; */
+    color: white;
+    text-decoration: none;
+    font-family: menu1;
+    font-size: 0.8em;
+
+}
+
+nav ul li a:hover {
+    color:goldenrod;
+}
+
+.menu-toggle {
+    display: none;
+    flex-direction: column;
+    height: 20px;
+    justify-content: space-between;
+    position: relative;
+}
+
+.menu-toggle input {
+    position: absolute;
+    width: 40px;
+    height: 28px;
+    left: -6px;
+    top: -3px;
+    opacity: 0;
+    z-index: 2;
+    cursor: pointer;
+}
+
+.menu-toggle span {
+    z-index: 1;
+    display: block;
+    width: 28px;
+    height: 3px;
+    margin-right: 40px;
+    background-color:goldenrod;
+    border-radius: 3px;
+    transition: all 0.5s;
+
+}
+
+/* Hamburger Menu Animation */
+.menu-toggle span:nth-child(2) {
+    /* background-color:yellow; */
+    transform-origin: 0 0;
+}
+
+.menu-toggle span:nth-child(4) {
+    /* background-color:yellow; */
+    transform-origin: 0 100%;
+}
+
+
+.menu-toggle input:checked~span:nth-child(2) {
+    /* background-color: #ff0000; */
+    transform: rotate(45deg) translate(-1px, -1px);
+    background-color: white;
+}
+
+.menu-toggle input:checked~span:nth-child(4) {
+    /* background-color: #ff0000; */
+    transform: rotate(-45deg) translate(-1px, 0px);
+    background-color: white;
+
+}
+
+.menu-toggle input:checked~span:nth-child(3) {
+    /* background-color: #ff0000; */
+    transform: scale(0);
+}
+
+
+/* Responsive Breakpoint */
+/* Ukuran Tablet */
+@media screen and (max-width: 1000px) {
+    nav ul {
+        width: 60%;
+        /* background-color: aqua; */
+    }
+}
+
+
+/* Ukuran Mobile */
+@media screen and (max-width: 700px) {
+    .menu-toggle {
+        display: flex;
+    }
+
+    nav ul {
+        /* border: 2px red solid; */
+        position: absolute;
+        right: 0;
+        top: 30px;
+        height: 100vh;
+        width: 50%;
+        justify-content: space-evenly;
+        flex-direction: column;
+        background-color: black;
+        align-items: center;
+        z-index: 1;
+        transform: translateX(100%);
+        transition: all 1s;
+        opacity: 0;
+        /* font-size: 15px; */
+        padding: 10px;
+    }
+
+}
+
+nav ul.slide {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+img {
+    display: inline-block;
+    height: 60px;
+}
+
+
+/* ========================================================================================= */
+
+.malasngoding-slider {
+    /* border: 2px solid black;  */
+    position: relative;
+    overflow: hidden;
+    /* background:black; */
+    /* margin: 100px; */
+}
+
+.malasngoding-slider {
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 15px;
+    width: 1200px;
+    height: 700px;
+}
+
+.isi-slider img {
+    width: 1200px;
+    height: 700px; 
+    float: left;
+    display: inline;
+}
+
+
+.isi-slider {
+    position: absolute;
+    width: 4800px;
+
+    /*pengaturan durasi lama tampil gambar bisa di atur di bawah ini*/
+    animation-name: slider;
+    animation-duration: 16s;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: infinite;
+    -webkit-animation-name: slider;
+    -webkit-animation-duration: 16s;
+    -webkit-animation-timing-function: ease-in-out;
+    -webkit-animation-iteration-count: infinite;
+    -moz-animation-name: slider;
+    -moz-animation-duration: 16s;
+    -moz-animation-timing-function: ease-in-out;
+    -moz-animation-iteration-count: infinite;
+    -o-animation-name: slider;
+    -o-animation-duration: 16s;
+    -o-animation-timing-function: ease-in-out;
+    -o-animation-iteration-count: infinite;
+}
+
+
+/*saat gambar di hover oleh cursor mouse maka berhenti slide*/
+/* .isi-slider:hover { 
+	-webkit-animation-play-state:paused; 
+	-moz-animation-play-state:paused; 
+	-o-animation-play-state:paused; 
+	animation-play-state:paused; 
+} */
+
+.isi-slider img {;
+    float: left;
+}
+
+.malasngoding-slider:after {
+    font-size: 150px;
+    position: absolute;
+    /* z-index: 12; */
+    color: rgba(255, 255, 255, 0);
+    left: 300px;
+    top: 80px;
+    -webkit-transition: 1s all ease-in-out;
+    -moz-transition: 1s all ease-in-out;
+    transition: 1s all ease-in-out;
+}
+
+.malasngoding-slider:hover:after {
+    color: rgba(255, 255, 255, 0.6);
+}
+
+
+
+@-moz-keyframes slider {
+    0% {
+        left: 0;
+        opacity: 0;
+    }
+
+    2% {
+        opacity: 1;
+    }
+
+    20% {
+        left: 0;
+        opacity: 1;
+    }
+
+    21% {
+        opacity: 0;
+    }
+
+    24% {
+        opacity: 0;
+    }
+
+    25% {
+        left: -1200px;
+        opacity: 1;
+    }
+
+    45% {
+        left: -1200px;
+        opacity: 1;
+    }
+
+    46% {
+        opacity: 0;
+    }
+
+    48% {
+        opacity: 0;
+    }
+
+    50% {
+        left: -2400px;
+        opacity: 1;
+    }
+
+    70% {
+        left: -2400px;
+        opacity: 1;
+    }
+
+    72% {
+        opacity: 0;
+    }
+
+    74% {
+        opacity: 0;
+    }
+
+    75% {
+        left: -3600px;
+        opacity: 1;
+    }
+
+    95% {
+        left: -3600px;
+        opacity: 1;
+    }
+
+    97% {
+        left: -3600px;
+        opacity: 0;
+    }
+
+    100% {
+        left: 0;
+        opacity: 0;
+    }
+}
+
+
+@-webkit-keyframes slider {
+    0% {
+        left: 0;
+        opacity: 0;
+    }
+
+    2% {
+        opacity: 1;
+    }
+
+    20% {
+        left: 0;
+        opacity: 1;
+    }
+
+    21% {
+        opacity: 0;
+    }
+
+    24% {
+        opacity: 0;
+    }
+
+    25% {
+        left: -1200px;
+        opacity: 1;
+    }
+
+    45% {
+        left: -1200px;
+        opacity: 1;
+    }
+
+    46% {
+        opacity: 0;
+    }
+
+    48% {
+        opacity: 0;
+    }
+
+    50% {
+        left: -2400px;
+        opacity: 1;
+    }
+
+    70% {
+        left: -2400px;
+        opacity: 1;
+    }
+
+    72% {
+        opacity: 0;
+    }
+
+    74% {
+        opacity: 0;
+    }
+
+    75% {
+        left: -3600px;
+        opacity: 1;
+    }
+
+    95% {
+        left: -3600px;
+        opacity: 1;
+    }
+
+    97% {
+        left: -3600px;
+        opacity: 0;
+    }
+
+    100% {
+        left: 0;
+        opacity: 0;
+    }
+}
+
+
+@keyframes slider {
+    0% {
+        left: 0;
+        opacity: 0;
+    }
+
+    2% {
+        opacity: 1;
+    }
+
+    20% {
+        left: 0;
+        opacity: 1;
+    }
+
+    21% {
+        opacity: 0;
+    }
+
+    24% {
+        opacity: 0;
+    }
+
+    25% {
+        left: -1200px;
+        opacity: 1;
+    }
+
+    45% {
+        left: -1200px;
+        opacity: 1;
+    }
+
+    46% {
+        opacity: 0;
+    }
+
+    48% {
+        opacity: 0;
+    }
+
+    50% {
+        left: -2400px;
+        opacity: 1;
+    }
+
+    70% {
+        left: -2400px;
+        opacity: 1;
+    }
+
+    72% {
+        opacity: 0;
+    }
+
+    74% {
+        opacity: 0;
+    }
+
+    75% {
+        left: -3600px;
+        opacity: 1;
+    }
+
+    95% {
+        left: -3600px;
+        opacity: 1;
+    }
+
+    97% {
+        left: -3600px;
+        opacity: 0;
+    }
+
+    100% {
+        left: 0;
+        opacity: 0;
+    }
+}
+
+/* ================================= */
+.namabarberia h1{
+    color: goldenrod;
+    text-align: center;
+    font-family: menu1;
+    letter-spacing: 5px;
+    /* display: flex;
+    text-align: center; */
+}
+
+
+
+.containersatu {
+    display: flex;
+    background-color: goldenrod;
+    flex-wrap: wrap;
+}
+
+.containersatu div {
+    background-color: #f1f1f1;
+    margin: 10px;
+    padding: 50px;
+    font-size: 30px;
+    border: 5px green solid;
+    height: ;
+}
+
+.containersatu .containerdua{
+    background-color: red;
+    width: 100%;
+    margin-left: 200px;
+    margin-right: 200px;
+}
+
+.footer {
+    width: 100%;
+    background-color: grey;
+    color: white;
+    text-align: center;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
